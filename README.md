@@ -5,13 +5,13 @@ Install Necessary Libraries
 
 You will need the following Python libraries:
 
-    Pillow for image processing.
-    pygame for displaying the GIF on the touchscreen.
-    RPi.GPIO for controlling the LED array (assuming you are using Raspberry Pi GPIO for the Jetson Nano).
+Pillow for image processing.
+pygame for displaying the GIF on the touchscreen.
+RPi.GPIO for controlling the LED array (assuming you are using Raspberry Pi GPIO for the Jetson Nano).
 
 Install these using pip:
 
-pip install pillow pygame RPi.GPIO
+    pip install pillow pygame RPi.GPIO
 
 signiot accomplishes the following tasks:
 
