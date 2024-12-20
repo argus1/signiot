@@ -11,7 +11,7 @@ RPi.GPIO for controlling the LED array (assuming you are using Raspberry Pi GPIO
 
 Install these using pip:
 
-    pip install pillow pygame RPi.GPIO
+    pip install pillow pygame Jetson.GPIO TIME-python
 
 signiot accomplishes the following tasks:
 
