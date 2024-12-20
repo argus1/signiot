@@ -1,12 +1,12 @@
 import pygame
-import RPi.GPIO as GPIO
+import Jetson.GPIO as GPIO
 from PIL import Image, ImageSequence
 import numpy as np
 import time
 
 # Initialize GPIO
 GPIO.setmode(GPIO.BCM)
-led_pins = [18, 23, 24, 25]  # Example GPIO pins
+led_pins = [3, 5, 7, 8, 10, 11, 12, 13, 15, 16]  # Example GPIO pins
 for pin in led_pins:
     GPIO.setup(pin, GPIO.OUT)
 
@@ -44,7 +44,7 @@ screen = pygame.display.set_mode((800, 480))
 clock = pygame.time.Clock()
 
 # Load and process GIF
-gif_path = "path_to_nyan_cat.gif"
+gif_path = "./cat-space.gif"
 shear_right = process_gif(gif_path, 0.5)
 shear_left = process_gif(gif_path, -0.5)
 
