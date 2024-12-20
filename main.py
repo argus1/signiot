@@ -5,7 +5,7 @@ import numpy as np
 import time
 
 # Initialize GPIO
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 led_pins = [3, 5, 7, 8, 10, 11, 12, 13, 15, 16]  # Example GPIO pins
 for pin in led_pins:
     GPIO.setup(pin, GPIO.OUT)
