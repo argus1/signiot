@@ -22,6 +22,4 @@ signiot accomplishes the following tasks:
    5.  Pygame Initialization: Sets up Pygame for displaying the GIF on the touchscreen.
    6.  Main Loop: Alternates the shear direction and displays the GIF frames, updating the LED array accordingly.
 
-Ensure you replace "path_to_nyan_cat.gif" with the actual path to your Nyan-cat GIF file.
-
 This script will continuously shear the GIF in both directions and update the LED array to indicate the current transformation direction.
