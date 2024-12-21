@@ -5,8 +5,8 @@ import time
 import tkinter as tk
 
 # Initialize GPIO
-GPIO.setmode(GPIO.BOARD)
-led_pins = [3, 5, 7, 8, 10, 11, 12, 13, 15, 16]  # Example GPIO pins
+GPIO.setmode(GPIO.BCM)
+led_pins = [4, 17, 22, 10, 9, 11, 5, 6, 13, 19]  # Example GPIO pins
 for pin in led_pins:
     GPIO.setup(pin, GPIO.OUT)
 
