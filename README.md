@@ -1,4 +1,5 @@
 # signiot
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=argus1/signiot)
 Embedded control of an animated sign synchronized with an LED array
 
 Install Necessary Libraries
