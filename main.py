@@ -1,8 +1,8 @@
-import pygame
 import Jetson.GPIO as GPIO
-from PIL import Image, ImageSequence
+from PIL import Image, ImageSequence, ImageTk
 import numpy as np
 import time
+import tkinter as tk
 
 # Initialize GPIO
 GPIO.setmode(GPIO.BOARD)
@@ -38,10 +38,10 @@ def process_gif(gif_path, shear_factor):
         frames.append(sheared)
     return frames
 
-# Initialize Pygame
-pygame.init()
-screen = pygame.display.set_mode((800, 480))
-clock = pygame.time.Clock()
+# Initialize Tkinter
+root = tk.Tk()
+canvas = tk.Canvas(root, width=800, height=480)
+canvas.pack()
 
 # Load and process GIF
 gif_path = "./cat-space.gif"
@@ -52,34 +52,33 @@ shear_left = process_gif(gif_path, -0.5)
 running = True
 direction = "right"
 frame_index = 0
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-    
+
+def update_frame():
+    global frame_index, direction
     if direction == "right":
         frame = shear_right[frame_index]
     else:
         frame = shear_left[frame_index]
-    
+
     frame_index = (frame_index + 1) % len(shear_right)
     set_leds(direction)
+
+    # Convert PIL image to Tkinter PhotoImage
+    tk_image = ImageTk.PhotoImage(frame)
     
-    # Convert PIL image to Pygame surface
-    mode = frame.mode
-    size = frame.size
-    data = frame.tobytes()
-    image = pygame.image.fromstring(data, size, mode)
-    
-    # Display image
-    screen.blit(image, (0, 0))
-    pygame.display.flip()
-    clock.tick(10)
-    
+    # Update image on canvas
+    canvas.create_image(0, 0, anchor=tk.NW, image=tk_image)
+    canvas.image = tk_image  # Keep a reference to avoid garbage collection
+
     # Change direction every few seconds
     if frame_index == 0:
         direction = "left" if direction == "right" else "right"
 
+    root.after(100, update_frame)  # Update frame every 100ms
+
+# Start the main loop
+root.after(0, update_frame)
+root.mainloop()
+
 # Cleanup
 GPIO.cleanup()
-pygame.quit()
