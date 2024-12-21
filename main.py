@@ -44,7 +44,8 @@ def process_gif(gif_path, shear_factor):
 
 # Initialize Tkinter
 root = tk.Tk()
-canvas = tk.Canvas(root, width=800, height=480)
+root.attributes('-fullscreen', True)  # Set window to fullscreen
+canvas = tk.Canvas(root, width=root.winfo_screenwidth(), height=root.winfo_screenheight())
 canvas.pack()
 
 # Load and process GIF
