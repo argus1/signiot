@@ -68,6 +68,9 @@ def update_frame():
     frame_index = (frame_index + 1) % len(shear_right)
     set_leds(direction)
 
+    # Resize the frame to fit the canvas
+    frame = frame.resize((root.winfo_screenwidth(), root.winfo_screenheight()), Image.ANTIALIAS)
+
     # Convert PIL image to Tkinter PhotoImage
     tk_image = ImageTk.PhotoImage(frame)
     
