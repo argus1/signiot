@@ -13,7 +13,7 @@ Jetson.GPIO for controlling the LED array (This setup uses Jetson Nano, but code
 ![setup](https://github.com/argus1/signiot/blob/main/SigniotSetup.png)
 Install these using pip:
 
-    pip install pillow pygame Jetson.GPIO TIME-python
+    pip install pillow pygame Jetson.GPIO TIME-python cupy
 
 signiot accomplishes the following tasks:
 
