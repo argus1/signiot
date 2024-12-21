@@ -26,8 +26,12 @@ def set_leds(direction):
 # Function to apply vertical shear
 def vertical_shear(image, shear_factor):
     width, height = image.size
-    M = np.array([[1, shear_factor], [0, 1]])
-    return image.transform((width, height), Image.AFFINE, data=M.flatten(), resample=Image.BICUBIC)
+    try:
+        M = np.array([[1, shear_factor], [0, 1]])
+        return image.transform((width, height), Image.AFFINE, data=M.flatten(), resample=Image.BICUBIC)
+    except Exception as e:
+        print(f"Error applying vertical shear: {e}")
+        return image  # Return the original image if transformation fails
 
 # Load GIF and apply shear transformation
 def process_gif(gif_path, shear_factor):
