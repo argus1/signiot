@@ -7,8 +7,8 @@ You will need the following Python libraries:
 
 Pillow for image processing.
 pygame for displaying the GIF on the touchscreen.
-RPi.GPIO for controlling the LED array (assuming you are using Raspberry Pi GPIO for the Jetson Nano).
-
+Jetson.GPIO for controlling the LED array (This setup uses Jetson Nano, but code can be easily adapted to Raspberry Pi with "RPi.GPIO").
+![setup](https://github.com/argus1/signiot/blob/main/SigniotSetup.png)
 Install these using pip:
 
     pip install pillow pygame Jetson.GPIO TIME-python
